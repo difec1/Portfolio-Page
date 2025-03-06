@@ -3,67 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carmelo di Fede</title>
+    <title>Mein Portfolio</title>
+
+    <!-- Verknüpfung zur CSS-Datei -->
+    <link rel="stylesheet" href="src/style.css" />
+
+    <!-- JavaScript Datei -->
+    <script type="module" src="src/app.js"></script>
   </head>
   <body>
-    <!-- Header-Bereich -->
     <header>
-      <h1>Carmelo di Fede</h1>
-      <nav>
-        <ul>
-          <li><a href="Home.html">Home</a></li>
-          <li><a href="about.html">Über mich</a></li>
-          <li><a href="projects.html">Projekte</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
-        </ul>
-      </nav>
+      <div class="nav-container">
+        <button id="hamburger-menu" class="hamburger-menu">☰</button>
+        <nav id="nav-links" class="nav-links">
+          <ul>
+            <li><a href="assets/home.html">Home</a></li>
+            <li><a href="assets/about.html">About Me</a></li>
+            <li><a href="assets/projects.html">Projects</a></li>
+            <li><a href="assets/api.html">APIs</a></li>
+            <li><a href="assets/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <!-- Hauptinhalt -->
-    <main>
-      <section id="head">
-        <h2>Willkommen auf meiner Portfolio-Seite</h2>
-        <p>Hier präsentiere ich meine Arbeiten.</p>
-      </section>
-
-      <section id="projects">
-        <h2>Meine Projekte</h2>
-        <div class="project">
-          <h3>Projekt 1</h3>
-          <p>Beschreibung des Projekts.</p>
-        </div>
-        <div class="project">
-          <h3>Projekt 2</h3>
-          <p>Beschreibung des Projekts.</p>
-        </div>
-      </section>
-
-      <section id="api">
-        <h2>Hier eine Lustige API</h2>
-        <div class="api">
-          <h3>API 1</h3>
-          <p>Beschreibung der API</p>
-        </div>
-      </section>
-
-      <section id="about">
-        <h2>Über mich</h2>
-        <p>Hier gibt es eine kurze Beschreibung über mich.</p>
-      </section>
-
-      <section id="contact">
-        <h2>Kontakt</h2>
-        <p>
-          Carmelo di Fede | Gwattstutz 2G | 3645 Gwatt (Thun)
-          <br />
-          +41 78 776 98 92 | carmelo.d.fede@gmail.com
-        </p>
-      </section>
-    </main>
-
-    <!-- Footer-Bereich -->
-    <footer>
-      <p>Copyright &copy; 2025 Carmelo di Fede Alle Rechte vorbehalten</p>
-    </footer>
+    <div class="content" id="app">
+      <h1>Willkommen auf meinem Portfolio</h1>
+      <p>Wähle eine Seite aus der Navigation aus, um mehr zu erfahren.</p>
+    </div>
   </body>
 </html>
