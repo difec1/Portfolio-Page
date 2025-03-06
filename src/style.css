@@ -1,4 +1,4 @@
-/* Grundlegendes Reset */
+/* ========== Reset ========== */
 * {
   margin: 0;
   padding: 0;
@@ -7,10 +7,14 @@
 
 body {
   font-family: Arial, sans-serif;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Sidebar Navigation (Desktop) */
+/* ========== Sidebar Navigation (Desktop) ========== */
 nav {
   width: 250px;
   background: #f4f4f4;
@@ -20,16 +24,14 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-nav h1 {
-  font-size: 1.5em;
-  text-align: center;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
+  text-align: left;
 }
 
 nav ul li {
@@ -44,40 +46,167 @@ nav ul li a {
   padding: 10px;
 }
 
-/* Hauptinhalt */
+/* ========== Hauptinhalt ========== */
 main {
-  margin-left: 270px; /* Platz für die Sidebar */
-  padding: 20px;
-  max-width: 1200px;
+  margin-left: 270px; /* Platz für Sidebar */
+  padding: 10px;
+  max-width: calc(100% - 270px);
+  transition: margin-left 0.6s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
 
-/* Hamburger Menü Button (Mobile) */
+/* ========== Titel Styling ========== */
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px; /* Titel weiter nach unten verschieben */
+}
+
+/* ========== Hamburger-Menü (Mobile) ========== */
 .hamburger-menu {
   display: none;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  background: none;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
 }
 
-/* Mobile Menü */
+/* ========== Dark Mode Button ========== */
+.dark-mode-toggle {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  background-color: #333;
+  color: white;
+  transition: background 0.6s, color 0.6s;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #555;
+}
+
+/* ========== Dark Mode Styling ========== */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode nav {
+  background-color: #333;
+}
+
+body.dark-mode nav ul li a {
+  color: #ffffff;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background-color: #ddd;
+  color: #333;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: #bbb;
+}
+
+/* ========== Mobile Ansicht ========== */
 @media (max-width: 768px) {
+  /* Hamburger-Menü sichtbar */
   .hamburger-menu {
-    display: block;
-  }
-
-  nav {
-    width: 250px;
-    height: 100vh;
+    display: flex;
     position: fixed;
-    left: -250px;
-    transition: left 0.3s;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  nav.open {
-    left: 0;
+  /* Hamburger-Icon */
+  .hamburger-menu div {
+    width: 35px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+    transition: 0.3s;
   }
+
+  /* Sidebar verstecken */
+  nav {
+    transform: translateX(-100%);
+    width: 250px;
+    background: #f4f4f4;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  /* Sidebar sichtbar, wenn Menü offen */
+  nav.open {
+    transform: translateX(0);
+  }
+
+  /* Hauptinhalt soll sich mit dem Menü verschieben */
+  main {
+    margin-left: 0;
+    max-width: 100%;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  /* Wenn Menü geöffnet ist, den Inhalt nach rechts schieben */
+  body.menu-open main {
+    transform: translateX(250px);
+  }
+
+  /* Wenn Menü geschlossen ist, den Inhalt zurücksetzen */
+  body:not(.menu-open) main {
+    transform: translateX(0);
+  }
+
+  /* Titel für Mobile weiter nach unten und rechts verschieben */
+  h1 {
+    margin-top: 50px;
+    margin-left: 16px;
+  }
+}
+
+/* ========== Footer Styling ========== */
+footer {
+  width: 100%;
+  background: #f4f4f4;
+  padding: 15px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  font-size: 1em;
+  color: #333;
+}
+
+/* Falls du den Footer nur am unteren Rand haben willst, wenn der Inhalt zu kurz ist */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  flex: 1; /* Damit der Footer immer am unteren Rand bleibt */
+}
+
+/* Dark Mode Footer Styling */
+body.dark-mode footer {
+  background: #333;
+  color: white;
 }
