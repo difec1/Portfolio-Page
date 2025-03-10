@@ -57,3 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init("rNRH19IqkW1xGB5LZ"); // EmailJS Public Key
+
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Verhindert das Neuladen der Seite
+
+      emailjs.sendForm("service_mtwwt7r", "template_bj0fk3k", this).then(
+        () => {
+          alert("Nachricht erfolgreich gesendet!");
+          this.reset();
+        },
+        (error) => {
+          alert(
+            "Nachricht konnte nicht gesendet werden. Bitte versuche es erneut."
+          );
+          console.error(error);
+        }
+      );
+    });
+});

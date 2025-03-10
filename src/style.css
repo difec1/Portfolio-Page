@@ -181,6 +181,72 @@ body.dark-mode .dark-mode-toggle:hover {
   }
 }
 
+/* ========== Kontaktformular ========== */
+.contact-container {
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Kontaktformular Light Mode */
+body.light-mode .contact-container {
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Kontaktformular Dark Mode */
+body.dark-mode .contact-container {
+  background: #16161e;
+  color: #fff;
+}
+
+/* Formularüberschrift */
+.contact-container h2 {
+  font-size: 2em;
+  background: linear-gradient(to right, #7a00ff, #ff00cc);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Input-Felder */
+.contact-container input,
+.contact-container textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background: #222;
+  color: white;
+}
+
+/* Light Mode Input */
+body.light-mode .contact-container input,
+body.light-mode .contact-container textarea {
+  background: #e0e0e0;
+  color: black;
+}
+
+/* Senden-Button */
+.contact-container button {
+  width: 95%;
+  padding: 12px;
+  margin-top: 10px;
+  background: linear-gradient(to right, #7a00ff, #ff00cc);
+  border: none;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-container button:hover {
+  opacity: 0.8;
+}
+
 /* ========== Footer Styling ========== */
 footer {
   width: 100%;

@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kontakt</title>
+    <title>Projekte</title>
     <link rel="stylesheet" href="../src/style.css" />
     <script defer src="../src/app.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   </head>
   <body>
     <!-- Sidebar Navigation -->
@@ -31,24 +32,25 @@
     </button>
 
     <!-- Hauptinhalt -->
-    <main>
-      <h1>Kontakt</h1>
-      <p>Hier kannst du mich erreichen:</p>
+    <main>    
+        <div class="contact-container">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
 
-      <p><strong>Email:</strong> carmelo.d.fede@gmail.com</p>
-      <p><strong>Telefon:</strong> +41 78 776 98 92</p>
-      <p>
-        <strong>LinkedIn:</strong>
-        <a
-          href="https://www.linkedin.com/in/carmelo-di-fede-8959371a5"
-          target="_blank"
-          >Mein LinkedIn-Profil</a
-        >
-      </p>
+
+
     </main>
+  </body>
+</html>
 
     <!-- Footer -->
-    <footer>
+  <footer>
       <div>Carmelo di Fede | Gwattstutz 2G | 3645 Gwatt (Thun)</div>
       <div>+41 78 776 98 92 | carmelo.d.fede@gmail.com</div>
       <p>Copyright &copy; 2024 Carmelo di Fede, Alle Rechte vorbehalten.</p>
