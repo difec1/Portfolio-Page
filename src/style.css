@@ -183,7 +183,7 @@ body.dark-mode .dark-mode-toggle:hover {
 
 /* ========== Kontaktformular ========== */
 .contact-container {
-  width: 50%;
+  width: 80%;
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
@@ -219,20 +219,21 @@ body.dark-mode .contact-container {
   margin: 10px 0;
   border: none;
   border-radius: 5px;
+  border: 0.1px solid black;
+  background: #f4f4f4;
+  color: black;
+}
+
+/* Dark Mode Input-Felder */
+body.dark-mode .contact-container input,
+body.dark-mode .contact-container textarea {
   background: #222;
   color: white;
 }
 
-/* Light Mode Input */
-body.light-mode .contact-container input,
-body.light-mode .contact-container textarea {
-  background: #e0e0e0;
-  color: black;
-}
-
 /* Senden-Button */
 .contact-container button {
-  width: 95%;
+  width: 90%;
   padding: 12px;
   margin-top: 10px;
   background: linear-gradient(to right, #7a00ff, #ff00cc);
@@ -248,31 +249,29 @@ body.light-mode .contact-container textarea {
 }
 
 /* ========== Footer Styling ========== */
+/* Standard-Footer (Desktop) */
 footer {
   width: 100%;
+  margin-left: 250px;
   background: #f4f4f4;
   padding: 15px;
   text-align: center;
-  bottom: 0;
-  left: 0;
-  font-size: 1em;
-  color: #333;
-}
-
-/* Falls du den Footer nur am unteren Rand haben willst, wenn der Inhalt zu kurz ist */
-body {
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-main {
-  flex: 1; /* Damit der Footer immer am unteren Rand bleibt */
+  flex-direction: column; /* Inhalte untereinander anordnen */
+  align-items: center; /* Inhalte horizontal zentrieren */
+  position: relative;
 }
 
 /* Dark Mode Footer Styling */
 body.dark-mode footer {
   background: #333;
   color: white;
+}
+
+/* Mobile Anpassung (Hamburger-Menü aktiv) */
+@media (max-width: 768px) {
+  footer {
+    text-align: center; /* Text bleibt mittig */
+    margin-left: 0; /* Sidebar wird entfernt, Footer bleibt in der Mitte */
+  }
 }
