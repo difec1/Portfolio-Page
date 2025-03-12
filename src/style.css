@@ -363,7 +363,9 @@ body.dark-mode footer {
 /* Mobile Anpassung (Hamburger-Menü aktiv) */
 @media (max-width: 768px) {
   footer {
-    text-align: center; /* Text bleibt mittig */
+    width: 100%;
+    text-align: center;
     margin-left: 0; /* Sidebar wird entfernt, Footer bleibt in der Mitte */
+    padding 15px 0;
   }
 }
