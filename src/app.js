@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Funktion zum Öffnen der PDFs
+function openPDF(pdfFile) {
+  window.open(`../documents/${pdfFile}`, "_blank");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   emailjs.init("rNRH19IqkW1xGB5LZ"); // EmailJS Public Key
 

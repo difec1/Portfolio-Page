@@ -32,11 +32,88 @@
 
     <!-- Hauptinhalt -->
     <main>
-      <h1>Über mich</h1>
-      <p>
-        Hier kannst du etwas über meine Person, meine Erfahrungen und meine
-        Interessen erfahren.
+      <h1 class="gradient-text">About Me</h1>
+      <p class="about-subtitle">
+        Entdecken Sie meinen Weg durch Ausbildung, Praktika und Erfahrungen!
       </p>
+
+      <!-- Lebenslauf -->
+      <div class="cv-container">
+        <div class="cv-box" onclick="openPDF('Lehrzeugnis.pdf')">
+          <p class="cv-date">Aug 2019 - Jul 2022</p>
+          <h3>Ausbildung als Kaufmann EFZ Profil E</h3>
+          <p>Gemeindeverwaltung Frutigen</p>
+        </div>
+
+        <div class="cv-box" onclick="openPDF('Berufsmaturitaetszeugnis.pdf')">
+          <p class="cv-date">Aug 2022 - Jul 2023</p>
+          <h3>Berufsmaturität Typ Wirtschaft</h3>
+          <p>Wirtschaftsschule Thun</p>
+        </div>
+
+        <div class="cv-box" onclick="openPDF('Arbeitszeugnis_MediaMarkt.pdf')">
+          <p class="cv-date">Sep 2022 - Okt 2024</p>
+          <h3>Aushilfe 20% - Verkauf Unterhaltungselektronik</h3>
+          <p>MeidaMarkt Thun</p>
+        </div>
+
+        <div class="cv-box" onclick="openPDF('Zeugnis_BFH.pdf')">
+          <p class="cv-date">Aug 2023 - Heute</p>
+          <h3>BSc Wirtschaftsinformatik</h3>
+          <p>Berner Fachhochschule</p>
+        </div>
+
+        <div class="cv-box" onclick="openPDF('Vorlage.pdf')">
+          <p class="cv-date">Jan 2024 - Dez 2025</p>
+          <h3>Aushilfe 20% - Finanzverwaltung und Softwareumstellung</h3>
+          <p>Gemeindeverwaltung Wattenwil</p>
+        </div>
+
+        <div class="cv-box" onclick="openPDF('Vorlage.pdf')">
+          <p class="cv-date">Okt 2024 - Heute</p>
+          <h3>
+            Aushilfe 20% - Bildung, Einwohnerkontrolle, Bauverwaltung,
+            Finanzverwaltung
+          </h3>
+          <p>Gemeindeverwaltung Frutigen</p>
+        </div>
+      </div>
+
+      <!-- Zertifikate -->
+      <h1 class="gradient-text">Zertifikate und Zeugnisse</h1>
+      <div class="cert-container">
+        <div class="cert-box" onclick="openPDF('Zeugnis_BFH.pdf')">
+          Zeugnis BFH
+        </div>
+        <div
+          class="cert-box"
+          onclick="openPDF('Arbeitszeugnis_MediaMarkt.pdf')"
+        >
+          Arbeitszeugnis MediaMarkt
+        </div>
+        <div class="cert-box" onclick="openPDF('Lehrzeugnis.pdf')">
+          Lehrzeugnis
+        </div>
+        <div class="cert-box" onclick="openPDF('Berufsmaturitaetszeugnis.pdf')">
+          Berufsmaturitätszeugnis
+        </div>
+        <div class="cert-box" onclick="openPDF('Fahigkeitszeugnis.pdf')">
+          Fahigkeitszeugnis
+        </div>
+        <div
+          class="cert-box"
+          onclick="openPDF('First_Certificate_in_English.pdf')"
+        >
+          First Certificate in English
+        </div>
+        <div class="cert-box" onclick="openPDF('Plida_Juniores_B2.pdf')">
+          Plida Juniores B2
+        </div>
+        <div class="cert-box" onclick="openPDF('Delf_B2.pdf')">Delf B2</div>
+        <div class="cert-box" onclick="openPDF('YoungPreneurs_Zertifikat.pdf')">
+          YoungPreneurs Zertifikat
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->

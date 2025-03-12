@@ -64,7 +64,23 @@ h1 {
   font-size: 2.5em;
   font-weight: bold;
   text-align: center;
+  color: black;
   margin-top: 50px; /* Titel weiter nach unten verschieben */
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #7a00ff, #ff00cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Stellt sicher, dass der restliche Text im Light/Dark Mode korrekt ist */
+h1 {
+  color: black; /* Standardfarbe für Light Mode */
+}
+
+body.dark-mode h1 {
+  color: white; /* Farbe für Dark Mode */
 }
 
 /* ========== Hamburger-Menü (Mobile) ========== */
@@ -181,9 +197,84 @@ body.dark-mode .dark-mode-toggle:hover {
   }
 }
 
+/* ========== CV Sektion ========== */
+.cv-container {
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cv-box {
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cv-box:hover {
+  background: #a4a4a4;
+}
+
+/* CV Light Mode */
+body.light-mode .cv-box {
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* CV Dark Mode */
+body.dark-mode .cv-box {
+  background: #16161e;
+  color: #fff;
+}
+
+/* ========== Zertifikate ========== */
+.cert-title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2em;
+}
+
+.cert-container {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.cert-box {
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 200px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cert-box:hover {
+  background: #a4a4a4;
+}
+
+/* CV Light Mode */
+body.light-mode .cert-box {
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* CV Dark Mode */
+body.dark-mode .cert-box {
+  background: #16161e;
+  color: #fff;
+}
+
 /* ========== Kontaktformular ========== */
 .contact-container {
-  width: 80%;
+  width: 100%;
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
@@ -251,15 +342,16 @@ body.dark-mode .contact-container textarea {
 /* ========== Footer Styling ========== */
 /* Standard-Footer (Desktop) */
 footer {
-  width: 100%;
+  width: calc(100% - 250px); /* Verhindert Überhang durch Sidebar */
   margin-left: 250px;
   background: #f4f4f4;
   padding: 15px;
   text-align: center;
   display: flex;
-  flex-direction: column; /* Inhalte untereinander anordnen */
-  align-items: center; /* Inhalte horizontal zentrieren */
+  flex-direction: column;
+  align-items: center;
   position: relative;
+  overflow-x: hidden; /* Stellt sicher, dass kein horizontaler Scroll entsteht */
 }
 
 /* Dark Mode Footer Styling */
