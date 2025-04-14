@@ -197,6 +197,97 @@ body.dark-mode .dark-mode-toggle:hover {
   }
 }
 
+/* ========== Bild Styling ========== */
+.main-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 30px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ========== Projekt Sektion ========== */
+.project-container {
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-box {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .project-box {
+  background: #1e1e1e;
+  color: white;
+}
+
+.project-box h2 {
+  margin-bottom: 10px;
+}
+
+.media-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.media-slider img {
+  height: 200px;
+  border-radius: 8px;
+}
+
+.media-slider pre {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre;
+  min-width: 300px;
+}
+
+body.light-mode .media-slider pre {
+  background: #eee;
+  color: black;
+}
+
+/* ========== Video Styling ========== */
+.project-video {
+  max-width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Seitenverhältnis */
+  height: 0;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+
 /* ========== CV Sektion ========== */
 .cv-container {
   width: 80%;
