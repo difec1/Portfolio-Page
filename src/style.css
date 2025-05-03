@@ -287,6 +287,16 @@ body.light-mode .media-slider pre {
   border-radius: 10px;
 }
 
+/* ========== Leaflet Styling ========== */
+#map {
+  height: 400px;
+  width: 90%;
+  max-width: auto;
+  margin: 40px auto;
+  border-radius: 10px;
+  z-index: 0;
+}
+
 
 /* ========== CV Sektion ========== */
 .cv-container {
