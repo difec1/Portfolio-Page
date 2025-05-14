@@ -29,7 +29,6 @@
         <li><a href="api.html">APIs</a></li>
         <li><a href="contact.html">Kontakt</a></li>
       </ul>
-
       <!-- Dark Mode Toggle Button -->
       <button id="dark-mode-toggle" class="dark-mode-toggle">
         🌙 Dark Mode
@@ -43,13 +42,35 @@
     </button>
 
     <!-- Hauptinhalt -->
-    <main>
-      <h1><span class="gradient-text">APIs & Technologien</span></h1>
+    <main class="main">
+      <h1 class="gradient-text">APIs & Technologien</h1>
       <p>
-        Hier findest du eine Übersicht der APIs und Technologien, die ich in
-        meinen Projekten nutze.
+        Diese Seite zeigt die Verwendung von Leaflet (Standortkarte) und
+        Open-Meteo (Wetterdaten).
       </p>
-      <div id="map"></div>
+
+      <!-- Standortkarte -->
+      <section class="map-section">
+        <h2>Dein aktueller Standort</h2>
+        <p>
+          Bitte erlaube den Zugriff auf deinen Standort, damit die Karte geladen
+          werden kann.
+        </p>
+        <div id="map-container">
+          <div id="map"></div>
+        </div>
+      </section>
+
+      <!-- Wetterdaten -->
+      <section class="weather-forecast">
+        <h2>Wetter – Rückblick - Heute, Vorhersage</h2>
+        <p id="forecast-location">Ort wird geladen...</p>
+        <p id="forecast-info">Lade Wetterdaten...</p>
+        <div id="forecast-sliders-container"></div>
+
+        </div>
+      </section>
+      
     </main>
 
     <!-- Footer -->

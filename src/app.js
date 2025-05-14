@@ -72,6 +72,8 @@ if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     (position) => {
       const userCoords = [position.coords.latitude, position.coords.longitude];
+
+      // Leaflet-Karte setzen
       const redIcon = new L.Icon({
         iconUrl: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
         iconSize: [32, 32],
@@ -83,7 +85,35 @@ if (navigator.geolocation) {
         .addTo(map)
         .bindPopup("Dein Standort")
         .openPopup();
+
       map.setView(userCoords, 10);
+
+      // Wetter abrufen
+      ladeOpenMeteoVorhersage(userCoords[0], userCoords[1]);
+
+      // Reverse Geocoding (Ort)
+      fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${userCoords[0]}&lon=${userCoords[1]}&format=json&accept-language=de`
+      )
+        .then((res) =>
+          res.ok ? res.json() : Promise.reject("Nominatim-Fehler")
+        )
+        .then((data) => {
+          const ort =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            data.address.hamlet ||
+            "dein Standort";
+          document.getElementById(
+            "forecast-location"
+          ).innerText = `Ort: ${ort}`;
+        })
+        .catch((err) => {
+          console.warn(err);
+          document.getElementById("forecast-location").innerText =
+            "Ort konnte nicht geladen werden.";
+        });
     },
     () => {
       console.warn("Standortzugriff verweigert oder nicht verfügbar.");
@@ -124,6 +154,71 @@ const passMarkers = [
 passMarkers.forEach((pass) => {
   L.marker(pass.coords).addTo(map).bindPopup(pass.name);
 });
+
+// Funktion zum Laden der Open-Meteo-Vorhersage
+function ladeOpenMeteoVorhersage(lat, lon) {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,precipitation_probability&past_days=1&forecast_days=6&timezone=Europe%2FBerlin`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const container = document.getElementById("forecast-sliders-container");
+      container.innerHTML = "";
+
+      const stunden = data.hourly.time.length;
+      const tage = {};
+
+      for (let i = 0; i < stunden; i++) {
+        const zeit = new Date(data.hourly.time[i]);
+        const datumKey = zeit.toLocaleDateString("de-CH", {
+          weekday: "long",
+          day: "2-digit",
+          month: "2-digit",
+        });
+
+        if (!tage[datumKey]) {
+          tage[datumKey] = [];
+        }
+
+        const uhrzeit = zeit.toLocaleTimeString("de-CH", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        tage[datumKey].push({
+          uhrzeit,
+          temp: data.hourly.temperature_2m[i],
+          regen: data.hourly.precipitation_probability[i],
+        });
+      }
+
+      Object.keys(tage).forEach((tag) => {
+        let cards = "";
+
+        tage[tag].forEach((eintrag) => {
+          cards += `
+            <div class="forecast-card">
+              <strong>${eintrag.uhrzeit}</strong><br>
+              🌡️ ${eintrag.temp} °C<br>
+              🌧️ ${eintrag.regen} %
+            </div>`;
+        });
+
+        container.innerHTML += `
+          <h3 style="margin-left:20px">${tag}</h3>
+          <div class="forecast-slider-wrapper">
+            <div class="forecast-slider">${cards}</div>
+          </div>`;
+      });
+
+      document.getElementById("forecast-info").textContent =
+        "Wetterdaten aktualisiert:";
+    })
+    .catch(() => {
+      document.getElementById("forecast-info").textContent =
+        "Fehler beim Laden der Wetterdaten.";
+    });
+}
 
 // Funktion zum Öffnen der PDFs
 function openPDF(pdfFile) {
