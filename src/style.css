@@ -473,7 +473,7 @@ body.dark-mode .cert-box {
 
 /* ========== Kontaktformular ========== */
 .contact-container {
-  width: 100%;
+  width: 80%;
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
